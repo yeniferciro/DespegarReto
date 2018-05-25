@@ -104,16 +104,12 @@ public class DespegarHomePage {
 	
 	public void noIngresarCiudadOrigen() throws InterruptedException {
 		driver.findElement(By.xpath("//*[@id=\"searchbox-sbox-all-boxes\"]/div[2]/div/div/div[3]/div[2]/div[1]/div[1]/div/div[1]/div/div/div/input")).clear();
-		//driver.findElement(By.xpath("//*[@id=\"searchbox-sbox-all-boxes\"]/div[2]/div/div/div[3]/div[2]/div[1]/div[1]/div/div[1]/div/div/div/input")).sendKeys("");
-		//Thread.sleep(3000);
 		driver.findElement(By.xpath("//*[@id=\"searchbox-sbox-all-boxes\"]/div[2]/div/div/div[3]/div[2]/div[1]/div[1]/div/div[1]/div/div/div/input")).sendKeys(Keys.BACK_SPACE);
 		driver.findElement(By.xpath("//*[@id=\"searchbox-sbox-all-boxes\"]/div[2]/div/div/div[3]/div[2]/div[1]/div[1]/div/div[1]/div/div/div/input")).sendKeys(Keys.ENTER);
 	}
 
 
 	public String visualizarMensajeDeErroPorCiudadOrigen() {
-		//return driver.findElement(By.className("validation-msg")).getText();
-		//return driver.findElement(By.xpath("//*[@id=\"searchbox-sbox-all-boxes\"]/div/div/div/div[3]/div/div[1]/div/div[1]/div/div/div/span")).getText();
 		return driver.findElement(By.xpath("//span[text()='Ingresa un origen']")).getText();
 	}
 
@@ -126,8 +122,6 @@ public class DespegarHomePage {
 
 
 	public String visualizarMensajeDeErroPorCiudadDestino() {
-		//return driver.findElement(By.className("validation-msg sbox-bind-show-error-tooltip-segment-1-destination-empty")).getText();
-		//return driver.findElement(By.xpath("//*[@id=\"searchbox-sbox-all-boxes\"]/div[2]/div/div/div[3]/div[2]/div[1]/div[1]/div/div[2]/div/div/div/div/span[1]")).getText();
 		return driver.findElement(By.xpath("//span[text()='Ingresa un destino']")).getText();
 	}
 

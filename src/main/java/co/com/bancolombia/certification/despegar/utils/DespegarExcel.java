@@ -26,14 +26,7 @@ public class DespegarExcel {
 
 		String[] headers = new String[] { "7 Precios Más Baratos" };
 
-		/*
-		 * CellStyle headerStyle = workbook.createCellStyle(); Font font =
-		 * workbook.createFont(); font.setColor(Font.COLOR_NORMAL);
-		 * headerStyle.setFont(font);
-		 */
-
 		CellStyle style = workbook.createCellStyle();
-		// style.setFillForegroundColor(IndexedColors.LIGHT_YELLOW.getIndex());
 
 		Font font = workbook.createFont();
 		font.setColor(Font.COLOR_RED);
@@ -58,32 +51,22 @@ public class DespegarExcel {
 
 			dataRow.createCell(0).setCellValue(product);
 			dataRow.setRowStyle(style);
-			//style.setFillForegroundColor(IndexedColors.GREEN.getIndex());
-			//style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
 		}
 
-		
-		
-		// Defines las propiedades de la fuente, en este caso blanca y en negrita
-        Font highlightCellFont = workbook.createFont();
-        highlightCellFont.setBold(true);
-        highlightCellFont.setColor(IndexedColors.BLACK.getIndex());
-        // Defines las propiedades de la celda y le aplicas la fuente
-        CellStyle highlightCellStyle = workbook.createCellStyle();
-        highlightCellStyle.setFillForegroundColor(IndexedColors.BRIGHT_GREEN.getIndex());
-        highlightCellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
-        highlightCellStyle.setFont(highlightCellFont);
+		Font highlightCellFont = workbook.createFont();
+		highlightCellFont.setBold(true);
+		highlightCellFont.setColor(IndexedColors.BLACK.getIndex());
 
-		
-        HSSFRow highlightRow = sheet.getRow(1);
-        highlightRow.getCell(0).setCellStyle(highlightCellStyle);
+		CellStyle highlightCellStyle = workbook.createCellStyle();
+		highlightCellStyle.setFillForegroundColor(IndexedColors.BRIGHT_GREEN.getIndex());
+		highlightCellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+		highlightCellStyle.setFont(highlightCellFont);
 
-		
-		
-		
-		
-		
+		HSSFRow highlightRow = sheet.getRow(1);
+		highlightRow.getCell(0).setCellStyle(highlightCellStyle);
+
 		FileOutputStream file;
+
 		try {
 			file = new FileOutputStream("DespegarVuelos.xls");
 			workbook.write(file);

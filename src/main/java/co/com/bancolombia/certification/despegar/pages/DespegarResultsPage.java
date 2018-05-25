@@ -19,14 +19,12 @@ public class DespegarResultsPage {
 	public void visualizarVuelos() throws InterruptedException {
 		Object[][] data = new Object[7][1];
 		
-		//esperarSegundos(driver, 10);
 		Thread.sleep(3000);
 			 			 
 		List<WebElement> listaPreciosVuelos= driver.findElements(By.xpath("//div[@id='clusters']//main-fare//flights-price-element//span[@class='amount price-amount']"));
 		
 		for(int i=0; i<7;i++){
 			data[i][0] = listaPreciosVuelos.get(i).getText();
-			//((System.out.println(listaPRecios.get(i).getText());
 		}
 		
 		DespegarExcel.crearExcel(data);

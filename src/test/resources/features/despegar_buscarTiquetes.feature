@@ -18,7 +18,8 @@ Feature: Buscar tiquetes baratos para viaje
 
      Examples: 
       | ciudadorigen | ciudaddestino | fechapartida | fecharegreso | numeropasajeros |
-      | Medellin | Cartagena | 01/09/2018 | 29/09/2018 | 3 |
+      | Medellin | Cartagena | 01/09/2018 | 29/09/2018 | 2 |
+      
       
 @NoCiudadOrigen      
    Scenario Outline: Busqueda sin ingreso de ciudad origen
@@ -34,7 +35,7 @@ Feature: Buscar tiquetes baratos para viaje
 
     Examples: 
       | ciudaddestino | fechapartida | fecharegreso | numeropasajeros |
-      | Cartagena | 01/09/2018 | 29/09/2018 | 1 |
+      | Cartagena | 01/09/2018 | 29/09/2018 | 2 |
       
 
 @NoCiudadDestino      

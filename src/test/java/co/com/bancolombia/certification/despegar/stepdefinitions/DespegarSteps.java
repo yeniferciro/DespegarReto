@@ -35,89 +35,75 @@ public class DespegarSteps {
 		despegarResultsPage = new DespegarResultsPage(driver);
 	}
 
-
 	@Given("el usuario esta en la pagina de Despegar")
 	public void usuarioIngresaAPaginaDespegar() {
 		despegarHomePage.ingresarADespegar();
 	}
-	
-	
+
 	@When("el usuario selecciona la opcion Vuelos")
 	public void usuarioSeleccionaOpcionVuelos() {
 		despegarHomePage.seleccionarOpcionVuelos();
 	}
-	
-	
-	@And ("el usuario ingresa la ciudad origen \"(.*)\"$")
+
+	@And("el usuario ingresa la ciudad origen \"(.*)\"$")
 	public void usuarioIngresaCiudadOrigen(String ciudadOrigen) throws InterruptedException {
 		despegarHomePage.ingresarCiudadOrigen(ciudadOrigen);
 	}
-	
-	
-	@And ("el usuario ingresa la ciudad destino \"(.*)\"$")
+
+	@And("el usuario ingresa la ciudad destino \"(.*)\"$")
 	public void usuarioIngresaCiudadDestino(String ciudadDestino) throws InterruptedException {
 		despegarHomePage.ingresarCiudadDestino(ciudadDestino);
 	}
 
-	
-	@And ("el usuario selecciona la fecha de partida \"(.*)\"$")
+	@And("el usuario selecciona la fecha de partida \"(.*)\"$")
 	public void usuarioSeleccionaFechaPartida(String fechaPartida) throws InterruptedException {
 		despegarHomePage.seleccionarFechaPartida(fechaPartida);
 	}
-	
-	
-	@And ("el usuario selecciona la fecha de regreso \"(.*)\"$")
+
+	@And("el usuario selecciona la fecha de regreso \"(.*)\"$")
 	public void usuarioSeleccionaFechaRegreso(String fechaRegreso) throws InterruptedException {
 		despegarHomePage.seleccionarFechaRegreso(fechaRegreso);
 	}
-	
-	
+
 	@And("el usuario ingresa el numero de pasajeros \"(.*)\"$")
 	public void usuarioIngresaNumeroPasajeros(String numeroPasajeros) throws InterruptedException {
 		despegarHomePage.ingresarNumeroPasajeros(numeroPasajeros);
 	}
-	
-	
+
 	@And("el usuario selecciona la opcion Buscar")
 	public void usuarioSeleccionaOpcionBuscar() {
 		despegarHomePage.seleccionarOpcionBuscar();
 	}
-	
-	
+
 	@Then("el usuario puede visualizar las opciones de vuelo mas economicas en un Excel")
 	public void usuarioVisualizaVuelos() throws InterruptedException {
 		despegarResultsPage.visualizarVuelos();
 	}
-	
-	
+
 	@And("el usuario no ingresa la ciudad origen")
 	public void usuarioNoIngresaCiudadOrigen() throws InterruptedException {
 		despegarHomePage.noIngresarCiudadOrigen();
 	}
-	
-	
+
 	@Then("el usuario visualiza un mensaje de error porque no ingreso la ciudad origen")
-	public void usuarioVisualizaMensajeDeErrorPorNoIngresarCiudadOrigen(){
+	public void usuarioVisualizaMensajeDeErrorPorNoIngresarCiudadOrigen() {
 		String result = despegarHomePage.visualizarMensajeDeErroPorCiudadOrigen();
 		assertEquals("Ingresa un origen", result);
 	}
-	
-	
+
 	@And("el usuario no ingresa la ciudad destino")
 	public void usuarioNoIngresaCiudadDestino() throws InterruptedException {
 		despegarHomePage.noIngresarCiudadDestino();
 	}
-	
-	
+
 	@Then("el usuario visualiza un mensaje de error porque no ingreso la ciudad destino")
-	public void usuarioVisualizaMensajeDeErrorPorNoIngresarCiudadDestino(){
+	public void usuarioVisualizaMensajeDeErrorPorNoIngresarCiudadDestino() {
 		String result = despegarHomePage.visualizarMensajeDeErroPorCiudadDestino();
 		assertEquals("Ingresa un destino", result);
 	}
-	
-	
+
 	@After
 	public void tearDown() {
-		//driver.quit();
-	}	
+		driver.quit();
+	}
 }
