@@ -19,6 +19,7 @@ import java.math.BigDecimal;
 public class DespegarExcel {
 
 	public static void crearExcel(Object[][] data) {
+		System.out.println("Yei");
 		HSSFWorkbook workbook = new HSSFWorkbook();
 		HSSFSheet sheet = workbook.createSheet();
 		workbook.setSheetName(0, "Resultado_Busqueda_Vuelos");
@@ -57,10 +58,31 @@ public class DespegarExcel {
 
 			dataRow.createCell(0).setCellValue(product);
 			dataRow.setRowStyle(style);
-			style.setFillForegroundColor(IndexedColors.GREEN.getIndex());
-			style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+			//style.setFillForegroundColor(IndexedColors.GREEN.getIndex());
+			//style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
 		}
 
+		
+		
+		// Defines las propiedades de la fuente, en este caso blanca y en negrita
+        Font highlightCellFont = workbook.createFont();
+        highlightCellFont.setBold(true);
+        highlightCellFont.setColor(IndexedColors.BLACK.getIndex());
+        // Defines las propiedades de la celda y le aplicas la fuente
+        CellStyle highlightCellStyle = workbook.createCellStyle();
+        highlightCellStyle.setFillForegroundColor(IndexedColors.BRIGHT_GREEN.getIndex());
+        highlightCellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+        highlightCellStyle.setFont(highlightCellFont);
+
+		
+        HSSFRow highlightRow = sheet.getRow(1);
+        highlightRow.getCell(0).setCellStyle(highlightCellStyle);
+
+		
+		
+		
+		
+		
 		FileOutputStream file;
 		try {
 			file = new FileOutputStream("DespegarVuelos.xls");
